@@ -1,0 +1,23 @@
+<ul class="list-group" data-ng-controller="SoortsController" data-ng-init="find()">
+    <li data-ng-repeat="soort in soorts" class="list-group-item">
+        <small class="list-group-item-text">
+            <span data-ng-bind="soort.name"></span>
+        </small>
+        <span class="pull-right">
+            <a class="btn btn-success btn-xs" href="/#!/soorts/{{soort._id}}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+            </a>
+            <!--Dit moet een modal dialog worden-->
+            <a class="btn btn-warning btn-xs" href="/#!/soorts/{{soort._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-xs" data-ng-click="remove();">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </span>
+    </li>
+</ul>
+
+<div class="alert alert-warning text-center" data-ng-hide="!soorts.$resolved || soorts.length">
+    Er bestaan nog geen soorten vakanties in de databank.
+</div>

@@ -1,0 +1,84 @@
+<section data-ng-controller="OudersController">
+    <div class="page-header">
+        <h1>Nieuwe ouder</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label">Voornaam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="voornaam" id="voornaam" class="form-control" placeholder="voornaam" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Familienaam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="familienaam" id="name" class="form-control" placeholder="familienaam" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >Rijksregisternummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="rijksregisternummer" id="rijksregisternummer" class="form-control" placeholder="" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >Geboortedatum</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="geboortedatum" id="geboortedatum" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >Straat</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="adres.straat" id="straat" class="form-control" placeholder="straat" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="adres.nummer" id="nummer" class="form-control" placeholder="nummer" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Postcode</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="adres.postcode" id="postcode" class="form-control" placeholder="postcode" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >Gemeente</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="adres.gemeente" id="gemeente" class="form-control" placeholder="gemeente" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >Telefoonnummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="telefoonnummer" id="telefoonnummer" class="form-control" placeholder="" required>
+                    </div>
+                </div>
+
+                <!--LIJST VAN KINDEREN-->
+
+                
+                <div class="form-group">
+                <label class="control-label" >Mijn kinderen</label>
+                  <select ng-model="selectedChild" ng-options="kind.rijksregisternummer as kind.voornaam for kind in alleKinderen" 
+                        ng-change="voegKindToe(selectedChild)" class="form-control">
+
+                      <option value="">-- Selecteer kind --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

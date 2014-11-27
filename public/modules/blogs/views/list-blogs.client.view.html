@@ -1,0 +1,23 @@
+<ul class="list-group" data-ng-controller="BlogsController" data-ng-init="find()">
+    <li data-ng-repeat="blog in blogs" class="list-group-item">
+        <small class="list-group-item-text">
+            <span data-ng-bind="blog._id"></span> 
+        </small>
+        <span class="pull-right">
+            <a class="btn btn-success btn-xs" href="/#!/blogs/{{blog._id}}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+            </a>
+            <!--Dit moet een modal dialog worden-->
+            <a class="btn btn-warning btn-xs" href="/#!/blogs/{{blog._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-xs" data-ng-click="remove(blog);">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </span>
+    </li>
+</ul>
+
+<div class="alert alert-warning text-center" data-ng-hide="!blogs.$resolved || blogs.length">
+    Er bestaan nog geen blogs in de databank.
+</div>

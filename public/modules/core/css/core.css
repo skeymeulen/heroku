@@ -1,0 +1,33 @@
+.content {
+	margin-top: 50px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty{
+    border-color:#FA787E;
+}
+.ng-valid.ng-dirty{
+    border-color:#78FA89;
+}
+
+.mainContent{
+	margin-top: 40px;
+}
+
+/*Deze staat hier, omdat ik het onlogisch vond om hem in één van de modules te steken, ondanks dat de
+searchbars in de views van de modules staan*/
+.searchbar{
+	margin: 20px;
+}
+
+.addBtn{
+	margin: 20px;
+}
+
+.list-group{
+	margin-bottom: -10px;
+}

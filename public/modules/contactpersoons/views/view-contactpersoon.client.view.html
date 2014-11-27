@@ -1,0 +1,23 @@
+<section data-ng-controller="ContactpersoonsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="contactpersoon.voornaam"></h1>
+	</div>
+	<!-- data-ng-show="authentication.user._id == contactpersoon.user._id" -->
+	<div class="pull-right" >
+		<a class="btn btn-primary" href="/#!/contactpersoons/{{contactpersoon._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Telefoon:
+			<span data-ng-bind="contactpersoon.telefoon"></span>
+			<br/>
+			E-mail
+			<span data-ng-bind="contactpersoon.email"></span>
+		</em>
+	</small>
+</section>

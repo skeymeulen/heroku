@@ -1,0 +1,61 @@
+<section data-ng-controller="MonitoractiviteitsController">
+    <div class="page-header">
+        <h1>Nieuwe monitoractiviteit</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Naam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="naam" id="name" class="form-control" placeholder="naam van de activiteit" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Beschrijving</label>
+                    <div class="controls">
+                        <textarea data-ng-model="beschrijving" id="name" class="form-control" placeholder="beschrijving" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Opleiding?</label>
+                    <div class="controls">
+                        <input type="checkbox" data-ng-model="opleiding" id="name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Locatie</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="locatie" id="name" class="form-control" placeholder="Locatie" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Begintijdstip</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="beginTijd" id="name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Eindtijdstip</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="eindTijd" id="name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Aanwezige monitoren</label>
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Documenten</label>
+                 
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,84 @@
+<section data-ng-controller="OudersController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Bewerk Ouder</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Voornaam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.voornaam" id="voornaam" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Familienaam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.familienaam" id="name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Rijksregisternummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.rijksregisternummer" id="rijksregisternummer" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Geboortedatum</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="ouder.geboortedatum" id="geboortedatum" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Straat</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.adres.straat" id="straat" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Nummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.adres.nummer" id="nummer" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Postcode</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.adres.postcode" id="postcode" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Gemeente</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.adres.gemeente" id="gemeente" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Telefoonnummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ouder.telefoonnummer" id="telefoonnummer" class="form-control" required>
+                    </div>
+                </div>
+                <!-- TODO: Multiselect maken via ui-select -->
+                 <div class="form-group">
+                <label class="control-label" >Mijn kinderen</label>
+                <ul ng-show="kinderen">
+                    <li ng-repeat="kind in kinderen">{{kind.voornaam}} {{kind.familienaam}}</li>
+                </ul>
+                  <select ng-model="ouder.kinderen" ng-options="kind._id as kind.voornaam for kind in alleKinderen" class="form-control">
+
+                      <option value="">-- Selecteer kind --</option>
+                    </select>
+                </div>
+
+
+                 <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

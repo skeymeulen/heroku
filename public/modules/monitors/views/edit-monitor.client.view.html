@@ -1,0 +1,76 @@
+<section data-ng-controller="MonitorsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Bewerk Monitor</h1>
+    </div>
+     <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Voornaam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.voornaam" id="voornaam" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Familienaam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.familienaam" id="name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Rijksregisternummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.rijksregisternummer" id="rijksregisternummer" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Geboortedatum</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="monitor.geboortedatum" id="geboortedatum" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Straat</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.adres.straat" id="straat" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Nummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.adres.nummer" id="nummer" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Postcode</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.adres.postcode" id="postcode" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Gemeente</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.adres.gemeente" id="gemeente" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">Telefoonnummer</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.telefoonnummer" id="telefoonnummer" class="form-control"  required>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="monitor.email" id="email" class="form-control"  required>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+    </div>
+</section>

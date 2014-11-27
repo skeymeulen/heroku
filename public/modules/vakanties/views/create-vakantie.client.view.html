@@ -1,0 +1,131 @@
+
+
+<section data-ng-controller="VakantiesController">
+    <div class="page-header">
+        <h1>New Vakantie</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+
+                <div class="form-group">
+                    <label class="control-label" for="naam">Naam</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="naam" id="naam" class="form-control" placeholder="Naam" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="ondertitel">Ondertitel</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="ondertitel" id="ondertitel" class="form-control" placeholder="Ondertitel" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="beschrijving">Beschrjiving</label>
+                    <div class="controls">
+                        <textarea data-ng-model="beschrijving" id="beschrijving" class="form-control" placeholder="Beschrijving" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="vertrek">Vertrekdatum</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="vertrek" id="vertrek" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="terugkomst">Terugkomstdatum</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="terugkomst" id="terugkomst" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="eigenVervoer">Er is vervoer voorzien</label>
+                    <div class="controls">
+                        <input type="checkbox" data-ng-model="eigenVervoer" id="eigenVervoer" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="formule">Formule</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="formule" id="formule" class="form-control" placeholder="Formule" required>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="control-label" for="prijs">Prijs</label>
+                    <div>
+                        <input type="number" min="0" data-ng-model="prijs" id="prijs"  class="form-control" placeholder="Prijs" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="prijs">Ledenprijs</label>
+                    <div>
+                        <input type="number" min="0" data-ng-model="ledenPrijs" id="ledenPrijs" class="form-control" placeholder="Ledenprijs" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="doelgroepVan">Ondergrens doelgroep</label>
+                    <div class="controls">
+                        <input type="number" min="0" max="18" data-ng-model="doelgroepVan" id="doelgroepVan" class="form-control" placeholder="Ondergrens doelgroep" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="doelgroepTot">Bovengrens doelgroep</label>
+                    <div class="controls">
+                        <input type="number" min="0" max="18" data-ng-model="doelgroepTot" id="doelgroepTot" class="form-control" placeholder="Bovengrens doelgroep" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="maxAantalDeelnemers">Maximum aantal deelnemers</label>
+                    <div class="controls">
+                        <input type="number" min="0" data-ng-model="maxAantalDeelnemers" id="maxAantalDeelnemers" class="form-control" placeholder="Maximum aantal deelnemers" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="fotos">Foto's</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="foto1" id="foto1" class="form-control" placeholder="http://www.link.be" required>
+                    </div> <br>
+                    <div class="controls">
+                        <input type="url" data-ng-model="foto2" id="foto2" class="form-control" placeholder="http://www.link.be" required>
+                    </div>
+                </div>
+
+                <!--Lijst soorten-->
+                <div class="form-group">
+                <label class="control-label" >Soort vakantie</label>
+                  <select data-ng-model="selectedSoort" id="selectedSoort" ng-options="soort.name as soort.name for soort in alleSoorten" class="form-control">
+                      <option value="">-- Selecteer soort --</option>
+                    </select>
+                </div>
+
+                <!--Kortingen-->
+                <div ng-app="checkbox" class="form-group">
+                    <label class="control-label" for="kortingen">Kortingen</label>
+                    <div checkbox-list selection="keuzes.kortingArray" items="kortingArray" value="id" label="naam"> </div>
+                    <hr>
+       
+                    <input type="checkbox" ng-model="kortingBox"/> <label class="control-label">Nieuwe kortingen</label>
+                    <span ng-show="kortingBox">
+                      <br><label class="control-label">id:</label>
+                      <input type="number" ng-model="id" class="form-control" placeholder="id"/>
+                      <label class="control-label">name:</label>
+                      <input type="text" ng-model="naamKorting" class="form-control" placeholder="Naam Korting"/> <br>
+                      <a ng-click="add()"><i class="glyphicon glyphicon-plus"> </i></a>
+                    <span>
+                </div>
+
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">
+                        Opslaan
+                    </button> 
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
+

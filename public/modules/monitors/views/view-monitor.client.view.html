@@ -1,0 +1,22 @@
+<section data-ng-controller="MonitorsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="monitor.name"></h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == monitor.user._id">
+		<a class="btn btn-primary" href="/#!/monitors/{{monitor._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Telefoon:
+			<span data-ng-bind="monitor.telefoon"></span>
+			<br/>
+			E-mail
+			<span data-ng-bind="monitor.email"></span>
+		</em>
+	</small>
+</section>

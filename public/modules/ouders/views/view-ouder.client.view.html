@@ -1,0 +1,23 @@
+<section data-ng-controller="OudersController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>{{ouder.voornaam}} {{ouder.familienaam}}</h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == ouder.user._id">
+		<a class="btn btn-primary" href="/#!/ouders/{{ouder._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+			<em class="text-muted">
+			<div class="row">
+				<div class="col-md-8">Straat: {{ouder.adres.straat}}</div>
+				<div class="col-md-4">Nummer: {{ouder.adres.nummer}}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">Postcode: {{ouder.adres.postcode}}</div>
+				<div class="col-md-6">Gemeente: {{ouder.adres.gemeente}}</div>
+			</div>
+		</em>
+</section>

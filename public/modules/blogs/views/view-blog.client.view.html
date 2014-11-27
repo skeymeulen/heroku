@@ -1,0 +1,17 @@
+<section data-ng-controller="BlogsController" data-ng-init="findOne()">
+	<div data-ng-repeat="blog in blog.posts">
+	<div class="page-header">
+		<h1 data-ng-bind="blog.titel"></h1>
+	</div>
+	<span data-ng-bind="blog.body"></span>
+	<br>
+	<small>
+		<em class="text-muted">
+			Geplaatst op:
+			<span data-ng-bind="blog.tijdstip"></span>
+		</em>
+	</small>
+	</div>
+</section>
+
+

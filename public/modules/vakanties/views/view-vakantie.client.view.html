@@ -1,0 +1,48 @@
+<section data-ng-controller="VakantiesController" data-ng-init="findOne()">
+	<br>
+	<br>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="vakantie.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="vakantie.user.displayName"></span>
+		</em>
+	</small>
+
+	<h3 data-ng-bind="vakantie.naam"></h3>
+	<h4 data-ng-bind="vakantie.ondertitel"></h4>
+	<p>Prijs is <strong><span data-ng-bind="vakantie.prijs"></span> euro.</strong></p>
+	<p>Ledenprijs is <strong><span data-ng-bind="vakantie.ledenPrijs"></span> euro.</strong></p>
+
+	<p>Beschrijving: <strong><span data-ng-bind="vakantie.beschrijving"></span></strong></p>
+
+	<br>
+
+	<p>Vertrek: <strong><span data-ng-bind="vakantie.vertrek"></span></strong></p>
+	<p>Terugkomst: <strong><span data-ng-bind="vakantie.terugkomst"></span></strong></p>
+
+	<br>
+
+	<p>Eigen vervoer nodig: <strong><span data-ng-bind="vakantie.eigenVervoer"></span></strong></p>
+	<p>Formule: <strong><span data-ng-bind="vakantie.formule"></span></strong></p>
+	<p>Doelgroep van <strong><span data-ng-bind="vakantie.doelgroepVan"></span></strong> tot <strong><span data-ng-bind="vakantie.doelgroepTot"></span></strong></p>
+	<p>Maximum aantal deelnemers: <strong><span data-ng-bind="vakantie.maxAantalDeelnemers"></span></strong></p>
+	<p>Soort vakantie: <strong><span data-ng-bind="vakantie.soort"></span></strong></p>
+
+	<br>
+	<br>
+
+	<img src="{{vakantie.fotos[0]}}" class="img-responsive">
+
+	<br>
+
+	<div class="pull-right" data-ng-show="authentication.user._id == vakantie.user._id">
+		<a class="btn btn-primary" href="/#!/vakanties/{{vakantie._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+</section>

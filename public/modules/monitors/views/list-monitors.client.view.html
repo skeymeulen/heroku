@@ -1,0 +1,24 @@
+<ul class="list-group" data-ng-controller="MonitorsController" data-ng-init="find()">
+    <li data-ng-repeat="monitor in monitors" class="list-group-item">
+        <small class="list-group-item-text">
+            <span data-ng-bind="monitor.voornaam"></span>
+            <span data-ng-bind="monitor.familienaam"></span>
+        </small>
+        <span class="pull-right">
+            <a class="btn btn-success btn-xs" href="/#!/monitors/{{monitor._id}}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+            </a>
+            <!--Dit moet een modal dialog worden-->
+            <a class="btn btn-warning btn-xs" href="/#!/monitors/{{monitor._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-xs" data-ng-click="remove(monitor);">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </span>
+    </li>
+</ul>
+
+<div class="alert alert-warning text-center" data-ng-hide="!monitors.$resolved || monitors.length">
+    Er bestaan nog geen monitors in de databank.
+</div>

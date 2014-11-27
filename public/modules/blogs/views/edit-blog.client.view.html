@@ -1,0 +1,42 @@
+<section data-ng-controller="BlogsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Bewerk Blog</h1>
+    </div>
+    <div class="col-md-12" data-ng-repeat="post in blog.posts" >
+       <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label">Titel</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="post.titel"  class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Body</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="post.body"  class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tijdstip</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="post.tijdstip"  class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Auteur</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="post.auteur"  class="form-control"  required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default"> <input type="button" value="Verwijder deze post" class="btn btn-default" ng-click="verwijderPost(post._id)">
+                </div>
+                
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

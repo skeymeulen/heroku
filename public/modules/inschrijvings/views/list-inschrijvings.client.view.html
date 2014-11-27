@@ -1,0 +1,27 @@
+<ul class="list-group" data-ng-controller="InschrijvingsController" data-ng-init="find()">
+    <li data-ng-repeat="inschrijving in inschrijvings" class="list-group-item">
+        <small class="list-group-item-text">
+            <!-- TODO: Namen ophalen -->
+            <span data-ng-bind="inschrijving.kind"></span> - 
+            <span data-ng-bind="inschrijving.vakantie"></span>
+            <!-- TODO: Betaald of Niet betaald van maken -->
+            <span data-ng-bind="inschrijving.betaald"></span>
+        </small>
+        <span class="pull-right">
+            <a class="btn btn-success btn-xs" href="/#!/inschrijvings/{{inschrijving._id}}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+            </a>
+            <!--Dit moet een modal dialog worden-->
+            <a class="btn btn-warning btn-xs" href="/#!/inschrijvings/{{inschrijving._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-xs" data-ng-click="remove(inschrijving);">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </span>
+    </li>
+</ul>
+
+<div class="alert alert-warning text-center" data-ng-hide="!inschrijvings.$resolved || inschrijvings.length">
+    Er bestaan nog geen inschrijvingen in de databank.
+</div>

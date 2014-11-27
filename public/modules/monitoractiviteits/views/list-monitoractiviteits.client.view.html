@@ -1,0 +1,24 @@
+<ul class="list-group" data-ng-controller="MonitoractiviteitsController" data-ng-init="find()">
+    <li data-ng-repeat="activiteit in monitoractiviteits" class="list-group-item">
+        <small class="list-group-item-text">
+            <span data-ng-bind="activiteit.naam"></span>
+            <span data-ng-bind="activiteit.locatie"></span>
+        </small>
+        <span class="pull-right">
+            <a class="btn btn-success btn-xs" href="/#!/monitoractiviteits/{{activiteit._id}}">
+                <i class="glyphicon glyphicon-info-sign"></i>
+            </a>
+            <!--Dit moet een modal dialog worden-->
+            <a class="btn btn-warning btn-xs" href="/#!/monitoractiviteits/{{activiteit._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-xs" data-ng-click="remove(activiteit);">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </span>
+    </li>
+</ul>
+
+<div class="alert alert-warning text-center" data-ng-hide="!monitoractiviteits.$resolved || monitoractiviteits.length">
+    Er bestaan nog geen monitoractiviteiten in de databank.
+</div>
